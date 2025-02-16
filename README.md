@@ -18,3 +18,9 @@ this approach was taken so the pointer varible of the config file would be passe
 **confighost.sh -** the third and finale script that is ment to configure the system by the config file. 
 
 
+
+
+![image](https://github.com/user-attachments/assets/84c496b0-c975-465c-8bd2-c7d7032d4dc7)
+
+
+
