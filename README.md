@@ -1,12 +1,12 @@
 
 Hey Alex,
-This project works well, i tried to add the ISO but i was unable to attach it here due to it's size. I will show you that the iso file works in tuesday. 
+This project works well, i tried to add the ISO but i was unable to attach it here due to it's size. I will show you that the iso file works on tuesday. 
 
 Structure of the project: 
 
 **system_setup.sh script** - is located in profile.d and is ment to start the sequence of the scripts in start time. 
 
-**Any config file** that it's name should be in the format "Name"-config.cfg* i used ronn-config.cfg.txt
+**Any config file** that it's name should be in the format "Name"-config.cfg* i used ronn-config.cfg.txt the config file should be located in a usb or virtual drive. 
 
 **configlib.sh -** A library that is ment to store functions that could be used by all of the scripts. 
 
