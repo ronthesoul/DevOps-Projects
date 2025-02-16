@@ -1,0 +1,31 @@
+#!/bin/bash
+# Software List
+programs=(git subversion vim python3 python3-pip golang-go curl wget net-tools traceroute nmap sshfs htop iotop nmon glances iftop ncdu duplicity timeshift rsyslog logrotate kubectl kubeadm nginx zip tar docker-compose docker.io openssh-server ufw)
+
+# User Details
+username="ronn"
+displayname="Ron Negrov"
+department="Cyber Security"
+role="Cyber Security Analyst"
+country="Israel"
+country_code="IL"
+office_location="Tel Aviv"
+phone="0508805349"
+email="m4gapower@gmail.com"
+manager="Nor Vorgen"
+user_shell="/bin/bash"
+user_groups="sudo"
+user_password="123"
+
+# Host System Configuration
+hostname="IL-ronn-Ubu"
+timezone="Asia/Jerusalem"
+locale="en_US.UTF-8 he_IL.UTF-8"
+default_editor="vim"
+terminal_prompt_color="blue"=
+
+# Network Configuration
+static_ip="192.168.1.50"
+netmask="255.255.255.0"
+gateway="192.168.1.1"
+dns_servers="8.8.8.8 8.8.4.4"
