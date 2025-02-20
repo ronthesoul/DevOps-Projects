@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
-
 ####################################
 #Developed by Ron Negrov
 #Purpose: takes the configuration file for input and accordingly configures the system
 #Date: 13/2/2025
-#Version: 0.0.1
+#Version: 0.0.6
  source "/opt/scripts/configlib.sh"
  source "$CONFIG_FILE"
 ####################################
@@ -27,17 +26,19 @@ update-alternatives --set editor /usr/bin/"$default_editor" 2>&1 | tee -a "$host
 # Fix PS1 export (Escape colors properly)
 echo "export PS1=\"\[\e[34m\]\u@\h:\w\$ \[\e[0m\]\"" >> /etc/profile 2>&1 | tee -a "$hostcfg_log_file"
 
-# Network Setup
-cat <<EOF > /etc/netplan/01-netcfg.yaml
+cat <<EOF | sudo tee /etc/netplan/01-netcfg.yaml > /dev/null
 network:
   version: 2
+  renderer: networkd
   ethernets:
     eth0:
       dhcp4: no
-      addresses: [$static_ip/24]
-      gateway4: $gateway
+      addresses:
+        - ${static_ip}/24
+      gateway4: ${gateway}
       nameservers:
-        addresses: [$dns_servers]
+        addresses:
+          - ${dns_servers}
 EOF
 
 # Apply Netplan configuration only if file is successfully created
@@ -48,5 +49,4 @@ else
     exit 1
 fi
 
-# Switch to new user
 exec su - "$username"
