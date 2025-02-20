@@ -3,7 +3,7 @@
 # Developed by Ron Negrov
 # Purpose: A lib file that contains all relevant functions.
 # Date: 14/2/2025
-# Version: 0.0.1
+# Version: 0.0.5
 ####################################
 
 # Function to create a log file
