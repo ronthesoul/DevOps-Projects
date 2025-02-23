@@ -1,21 +1,90 @@
-### Hey Alex,
-This project works well, i tried to add the ISO but i was unable to attach it here due to it's size. I will show you that the iso file works on tuesday. 
+# DevOps Projects
 
-Structure of the project: 
+A collection of shell scripts designed to automate system setup, software installation, and host configuration. This project provides a structured approach to bootstrapping a system using a configuration file stored on a USB or virtual drive.
 
-**system_setup.sh script** - is located in profile.d and is ment to start the sequence of the scripts in start time. 
+## Overview
 
-**Any config file** that it's name should be in the format "Name"-config.cfg* i used ronn-config.cfg.txt the config file should be located in a usb or virtual drive. 
+The project is built around a sequence of scripts that are executed on system startup. The overall workflow involves:
+- **Mounting** a configuration drive.
+- **Parsing** a configuration file for required software and settings.
+- **Installing** necessary software.
+- **Configuring** the host system according to the provided parameters.
 
-**configlib.sh -** A library that is ment to store functions that could be used by all of the scripts. 
+## Project Structure
 
-**configmount.sh -** The first script, maps the relevnt block device, mounts it to /mnt/config_disk and then to search for the config file, this scripts also spawns two bash child process that were ment to run the other scripts. 
-this approach was taken so the pointer varible of the config file would be passed to the rest of the scripts. 
+- **system_setup.sh**  
+  *Location:* `profile.d/`  
+  *Description:* This is the entry-point script that triggers the sequence of scripts during system startup.
 
-**software_setup.sh -** The seconds scripts, takes an array of the required softwares from the config file and installs them, uses a function from the configlib.sh file. 
+- **Configuration File**  
+  *Naming Convention:* Must follow the format `Name-config.cfg` (e.g., `ronn-config.cfg.txt`).  
+  *Location:* The configuration file should reside on a USB or virtual drive to be accessible by the scripts.
 
-**confighost.sh -** the third and finale script that is ment to configure the system by the config file. 
+- **configlib.sh**  
+  *Description:* A library of reusable functions. These functions are used by the other scripts to keep code DRY (Don't Repeat Yourself) and maintain consistency.
 
+- **configmount.sh**  
+  *Description:*  
+  - Maps the relevant block device.
+  - Mounts the device to `/mnt/config_disk`.
+  - Searches for the configuration file on the mounted drive.
+  - Spawns two child bash processes to run the subsequent scripts.  
+  *Note:* This approach ensures that a reference to the configuration file is passed along the chain of scripts.
+
+- **software_setup.sh**  
+  *Description:*  
+  - Reads an array of required software from the configuration file.
+  - Installs the listed software using functions provided in `configlib.sh`.
+
+- **confighost.sh**  
+  *Description:*  
+  - Applies system configuration settings as defined in the configuration file.
+  - Acts as the final step in the setup sequence.
+
+## Prerequisites
+
+- A Unix-like operating system (Linux, BSD, etc.)
+- A USB or virtual drive containing the configuration file.
+- Administrative privileges to mount devices and install software.
+
+## Setup and Usage
+
+1. **Prepare the Configuration File:**  
+   - Create a configuration file using the naming format `Name-config.cfg` (e.g., `ronn-config.cfg.txt`).
+   - Populate the file with the required parameters, including an array of software packages to install and any system configuration settings.
+
+2. **Place the Configuration File:**  
+   - Copy the configuration file to a USB or virtual drive that is accessible to your system.
+
+3. **Deploy the Scripts:**  
+   - Clone or copy the repository to your target system.
+   - Ensure that `system_setup.sh` is placed in the appropriate startup directory (e.g., `/etc/profile.d/`) so that it executes automatically during system boot.
+
+4. **Execution Flow:**  
+   - Upon startup, `system_setup.sh` launches the sequence:
+     - **configmount.sh** mounts the configuration drive and locates the configuration file.
+     - **software_setup.sh** installs the necessary software as defined in the configuration file.
+     - **confighost.sh** applies final system configurations.
+
+## ISO File Note
+
+Due to its large size, the ISO file used for demonstration purposes is not included in this repository. It has been tested and will be available for demonstration on request.
+
+## Contributing
+
+Contributions are welcome! If you have suggestions, improvements, or bug fixes, please fork the repository and submit a pull request. For issues or feature requests, open an issue on GitHub.
+
+## License
+
+*(Include your license information here if applicable)*
+
+## Acknowledgements
+
+This project was developed to streamline system setup and configuration, providing a reproducible and efficient approach to DevOps practices.
+
+---
+
+For further questions or information, please contact [Your Contact Information] or visit the [GitHub Repository](https://github.com/ronthesoul/DevOps-Projects).
 
 
 
