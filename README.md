@@ -56,36 +56,25 @@ The project is built around a sequence of scripts that are executed on system st
 2. **Place the Configuration File:**  
    - Copy the configuration file to a USB or virtual drive that is accessible to your system.
 
-3. **Deploy the Scripts:**  
-   - Clone or copy the repository to your target system.
-   - Ensure that `system_setup.sh` is placed in the appropriate startup directory (e.g., `/etc/profile.d/`) so that it executes automatically during system boot.
-
-4. **Execution Flow:**  
-   - Upon startup, `system_setup.sh` launches the sequence:
-     - **configmount.sh** mounts the configuration drive and locates the configuration file.
-     - **software_setup.sh** installs the necessary software as defined in the configuration file.
-     - **confighost.sh** applies final system configurations.
+3. **Execution Flow:**  
+   - Please Insert the ISO image to a virtualization software like virtualbox or VMware.
+   - Ensure that your virtial drive or USB drive are inserted in the storage section.
+   - Setup the ISO, when it boots it will ask you a passowrd to sudo.
+   - after you provide sudo passowrd the system_setup will begin.
 
 ## ISO File Note
 
 Due to its large size, the ISO file used for demonstration purposes is not included in this repository. It has been tested and will be available for demonstration on request.
 
 ## Contributing
+Ron Negrov
 
-Contributions are welcome! If you have suggestions, improvements, or bug fixes, please fork the repository and submit a pull request. For issues or feature requests, open an issue on GitHub.
-
-## License
-
-*(Include your license information here if applicable)*
 
 ## Acknowledgements
 
 This project was developed to streamline system setup and configuration, providing a reproducible and efficient approach to DevOps practices.
 
 ---
-
-For further questions or information, please contact [Your Contact Information] or visit the [GitHub Repository](https://github.com/ronthesoul/DevOps-Projects).
-
 
 
 ![image](https://github.com/user-attachments/assets/84c496b0-c975-465c-8bd2-c7d7032d4dc7)
